@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1_封装一个函数判断一个数是否是素数</title>
+</head>
+
+<body>
+    <script>
+        /*
+        * 判断是否是素数 true 表示是素数，false 表示不是素数
+        * 思路：
+        * 1. 如果这个数是1，肯定不是素数
+        * 2. 如果这个数是 2 或 3，肯定是素数
+        * 3. 如果这个数是偶数一定不是素数
+        * 4. 如果这个数的因数个数不是2，那么一定不是素数
+        * */
+        function whetherPrimeNumber(n) {
+            if (n === 1 || n % 2 === 0) {
+                return false
+            }
+            if (n === 2 || n === 3) {
+                return true
+            }
+            var count = 0
+            for (var j = 2; j <= n - 1; j++) {//排除1和本身
+                if (num % j === 0) {//只要找到一个就不是素数
+                    count++
+                    break
+                }
+            }
+            if (count === 0) {
+                return true
+            }
+            return false
+        }
+
+        var num = 20
+        if (whetherPrimeNumber((num))) {
+            console.log(num + '是素数')
+        } else {
+            console.log(num + '不是素数')
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var age = 20 // 用户输入的
+        // switch (true) {
+        //     case age >= 60:
+        //         document.write('老年')
+        //         break
+        //     case age >= 40 && age < 60:
+        //         document.write('中年')
+        //         break
+        //     case age >= 24 && age < 40:
+        //         document.write('青年')
+        //         break
+        //     case age >= 14 && age < 24:
+        //         document.write('青少年')
+        //         break
+        //     case age <= 14:
+        //         document.write('儿童')
+        //         break
+        //     default:
+        //         document.write('年龄不在范围中')
+        //         break
+        // }
+
+        // var num = 0
+        // var arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+        // alert(arr[num])
+
+        // var sum = 1
+        // for (var i = 1; i <= 10; i++) {
+        //     sum *= i
+        // }
+        // console.log(sum)
+
+        // for (var i = 1; i <= 5; i++) {
+        //     for (var j = 1; j <= i; j++) {
+        //         document.write(j + '&nbsp;')
+        //     }
+        //     document.write('<br>')
+        // }
+
+        // for (var i = 1; i <= 5; i++) {
+        //     // 打印空白数
+        //     for (var j = 1; j <= 5 - i; j++) {
+        //         document.write('&nbsp;')
+        //     }
+        //     //打印*
+        //     for (var j = 1; j <= i; j++) {
+        //         document.write('*' + '&nbsp;')
+        //     }
+        //     document.write('<br>')
+        // }
+
+        // for (var i = 100; i < 1000; i++) {
+        //     if (i % 4 === 2 && i % 7 === 3 && i % 9 === 5) {
+        //         console.log(i)
+        //     }
+        // }
+
+        // for (var i = 1000; i < 10000; i++) {
+        //     // 千位数
+        //     var k = parseInt(i / 1000 % 10)
+        //     // 百位数
+        //     var h = parseInt(i / 100 % 10)
+        //     // 十位数
+        //     var t = parseInt(i / 10 % 10)
+        //     // 个位数
+        //     var s = parseInt(i % 10)
+        //     if (i % 13 === 0 && k == h + t) {
+        //         console.log(i)
+        //     }
+        // }
+
+        // function fn(num) {
+        //     return (num % 3 === 0 && num % 5 === 0 && num % 7 === 0)
+        // }
+        // var arr = []
+        // for (var i = 1; i <= 1000; i++) {
+        //     if (fn(i)) {
+        //         arr[arr.length] = i
+        //     }
+        // }
+        // for (var j = 1; j < arr.length; j++) {
+        //     document.write(arr[j] + '&nbsp;')
+        //     if (j % 7 === 0) {
+        //         console.log(j);
+        //         document.write('<br>')
+        //     }
+        // }
+
+        // function fn(num) {
+        //     var count = 0
+        //     for (var i = 2; i <= num - 1; i++) {
+        //         if (num % i === 0) {
+        //             count++
+        //             break
+        //         }
+        //     }
+        //     if (count === 0) {
+        //         return true
+        //     }
+        //     return false
+        // }
+        // var arr = []
+        // for (var i = 100; i < 1000; i++) {
+        //     if (fn(i)) {
+        //         arr[arr.length] = i
+        //     }
+        // }
+        // for (var i = 2; i < arr.length; i++) {
+        //     document.write(arr[i] + '&nbsp;')
+        //     if (i % 7 === 0) {
+        //         document.write('<br>')
+        //     }
+        // }
+
+        // function factorial(num) {
+        //     var sum = 1
+        //     for (var i = 1; i <= num; i++) {
+        //         sum *= i
+        //     }
+        //     return sum
+        // }
+        // var res = factorial(5) - factorial(3)
+        // console.log(res)
+
+        // function fb1(n) {
+        //     if (n === 1 || n === 2) {
+        //         return 1
+        //     }
+        //     return fb1(n - 1) + fb1(n - 2)
+        // }
+
+        // console.log(fb1(6));
+
+        // function fb2(n) {
+        //     var n1 = 1
+        //     var n2 = 1
+        //     var sum = 0
+        //     for (var i = 2; i < n; i++) {
+        //         sum = n1 + n2
+        //         n1 = n2
+        //         n2 = sum
+        //     }
+        //     return sum
+        // }
+
+        // function fb(n) {
+        //     if (n <= 2) {
+        //         return 1
+        //     }
+        //     return fb(n - 1) + fb(n - 2)
+        // }
+        // var arr = []
+        // for (var i = 1; i <= 40; i++) {
+        //     arr[arr.length] = fb(i)
+        // }
+        // for (var i = arr.length - 1; i >= 0; i--) {
+        //     document.write(arr[i] + '&nbsp;&nbsp;')
+        //     if (i % 7 === 0) {
+        //         document.write('<br>')
+        //     }
+        // }
+
+
+        // 计算阶层
+        function layer(n) {
+            var sum = 1
+            for (var i = 1; i <= n; i++) {
+                sum *= i
+            }
+            return sum
+        }
+        var sum = 0
+        for (var i = 1; i <= 5; i++) {
+            sum += layer(i)
+        }
+        console.log(sum)
+
+
+
+
+
+    </script>
+</body>
+
+</html>

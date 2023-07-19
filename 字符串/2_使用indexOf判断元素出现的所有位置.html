@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2_使用indexOf判断元素出现的所有位置</title>
+</head>
+
+<body>
+    <script>
+        var str = "abd daj fjas afjsf faj"
+
+        var res = []
+        var  index = str.indexOf('a')
+        while (index !== -1) {
+            res.push(index)
+            index = str.indexOf('a', ++index)
+        }
+        console.log(res);
+
+
+
+    </script>
+</body>
+
+</html>

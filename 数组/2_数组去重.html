@@ -1,0 +1,28 @@
+<script>
+
+    // 新容器
+    var arr = [1, 2, 5, 2, 6, 5, 67, 8, 9, 9, 10]
+    var result = []
+    for (var i = 0; i < arr.length; i++) {
+        var item = arr[i]
+        var flag = false
+        for (var j = 0; j < result.length; j++) {
+            if (result[j] === item) {
+                flag = true
+                break
+            }
+        }
+        console.log(flag);
+        if (!flag) {
+            result.push(arr[i])
+        }
+    }
+    console.log(result);
+
+
+
+
+
+
+
+</script>

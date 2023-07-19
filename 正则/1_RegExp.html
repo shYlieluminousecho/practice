@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>1_RegExp</title>
+</head>
+
+<body>
+    <script>
+        console.log(new RegExp());
+        console.log(new RegExp(null));
+        console.log(new RegExp(undefined));
+        console.log(new RegExp(false));
+        console.log(new RegExp(0));
+        console.log(new RegExp(''));
+        console.log(new RegExp(' '));
+        console.log('----------');
+        console.log(new RegExp(NaN));
+        console.log(new RegExp(Infinity));
+        console.log(new RegExp(-Infinity));
+        console.log(new RegExp(+65));
+        // 匹配除了 \n 以外的任意字符
+        console.log(new RegExp('.'));
+        // 在字符组中就不是元字符了，表示匹配 .点
+        console.log(new RegExp('[.]'));
+
+        var names = "Harry Trump ;Fred Barney; Helen Rigby ; Bill Abel ;Chris Hand $Harry ";
+        // 移除字符串中的空格
+        // split() 方法会查找“0 或多个空白符接着的分号，找到后，就将空白符从字符串中移除
+        // NOTE: 不理解这个正则
+        var re = /\s*(?:;)\s*/g;
+        console.log(names.split(re));
+        // NOTE: 直接匹配$是什么意思
+        // 表示匹配字符串的结尾位置，因为空串的结尾位置就是其本身，索引可以匹配空串
+        console.log(''.match(/$/));
+        console.log(''.match(/^/));
+
+        var str = "Hello 1 word abc number 2 afsd 3";
+
+        console.log(str.split(/(\d)/));
+        console.log(str.split(/\d/));
+
+
+
+    </script>
+</body>
+
+</html>
