@@ -442,6 +442,38 @@ Promise.race([runReject(0), runAsync(1), runAsync(2), runAsync(3)])
   .then(res => console.log("result: ", res))
   .catch(err => console.log(err));
 
+// -------------------- 分割线 ----------------------
+
+const p = new Promise((resolve, reject) => {
+  resolve('Success!')
+})
+  .then(() => {
+      // throw Error('Oh noes!')
+      console.lag(123);
+  })
+  .catch(error => {
+      return "actually, that worked"
+  })
+  .catch(error => console.log(error))
+
+// -------------------- 分割线 ----------------------
+
+const p1 = new Promise((resolve, reject) => {
+    console.log(1)
+})
+p1.then(() => {
+    console.log(2)
+})
+console.log(3)
+
+// -------------------- 分割线 ----------------------
+
+var p2 = new Promise((resolve, reject) => {
+    console.log(1)
+})
+p2.then(console.log(2))
+console.log(3)
+
 ```
 
 ## Promise 结合 async/await
