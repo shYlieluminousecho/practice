@@ -21,7 +21,7 @@
     //   console.log(item);
     // }
     // 如果我们想让一个对象可迭代，则可以重写[Symbol.iterator]方法
-    obj[Symbol.iterator] = function () {
+    /* obj[Symbol.iterator] = function () {
       const keys = Object.keys(this)
       let index = 0
       const self = this
@@ -42,7 +42,103 @@
     }
     for (const item of obj) {
       console.log(item);
+    } */
+
+    // console.log('----------');
+
+    /* function* f() {
+      for (var i = 0; true; i++) {
+        console.log(i);
+        var reset = yield i;
+        if (reset) {
+          console.log('sssss_2', reset);
+          i = -1
+        }
+      }
     }
+
+    var g = f();
+    g.next()
+    g.next()
+    g.next(2)
+    g.next() */
+
+    var arr = [1, [[2, 3], 4], [5, 6]];
+    // var flat = function* (a) {
+    //   var length = a.length
+    //   for (var i = 0; i < length; i++) {
+    //     var item = a[i]
+    //     if (typeof item === 'object') { // 如果是引用类型，则继续递归
+    //       yield* flat(item)
+    //     } else {
+    //       yield item
+    //     }
+    //   }
+    // }
+
+    // for (var f of flat(arr)) {
+    //   console.log(f);
+    // }
+
+    // 将一个数组扁平化
+    /* function* flat(arr) {
+      for (let i = 0; i < arr.length; i++) {
+        var item = arr[i]
+        if (Array.isArray(item)) {
+          yield* flat(item)
+        } else {
+          yield item
+        }
+      }
+    }
+    for (const item of flat(arr)) {
+      console.log(item);
+    } */
+
+    /* function* f() {
+      for (var i = 0; true; i++) {
+        var reset = yield i;
+        if (reset) { i = -1; }
+      }
+    }
+
+    var g = f();
+
+    console.log(g.next()); // { value: 0, done: false }
+    console.log(g.next()); // { value: 1, done: false }
+    console.log(g.next(true));
+    console.log(g.next()); */
+
+    /*    function* foo(x) {
+         var y = 2 * (yield (x + 1));
+         var z = yield (y / 3);
+         console.log(x, y, z);
+         return (x + y + z);
+       } */
+
+    /* var a = foo(5)
+    console.log(a.next());
+    console.log(a.next());
+    console.log(a.next());
+    console.log(a.next()); */
+    /*  var b = foo(5);
+     console.log(b.next());
+     console.log(b.next(12));
+     console.log(b.next(13)); */
+
+    function* fibonacci() {
+      let [prev, curr] = [0, 1]
+      for (; ;) {
+        yield curr;
+        [prev, curr] = [curr, prev + curr]
+      }
+    }
+
+    for (let n of fibonacci()) {
+      if (n > 100) break
+      console.log(n);
+    }
+
   </script>
 </body>
 

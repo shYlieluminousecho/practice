@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+  <title>03-forin和forof的区别</title>
+</head>
+
+<body>
+  <script>
+    const arr = ['aaa', 'bbb', 'ccc', Symbol('c')]
+    const obj = {
+      name: 'zs',
+      age: 18,
+      sex: 'man',
+      [Symbol()]: 'xxx'
+    }
+    const arr2 = ['a', 'b', , , , 'x', 'y', 'z']
+
+    Object.prototype.test = 'test'
+
+    // for (const key in arr) {
+    //   console.log(key);
+    // }
+    // for (const key of arr) {
+    //   console.log(key, 'sssss_of');
+    // }
+    for (const key in obj) {
+      console.log(key);
+    }
+    console.log(Object.keys(obj));
+    console.log('---------');
+
+    // for (const key in arr2) {
+    //   console.log(key);
+    // }
+    // console.log('-------');
+    // for (const key of arr2) {
+    //   console.log(key);
+    // }
+
+
+
+    /*
+    总结： for...in 和 for...of 的区别
+    1.for...in 循环遍历的是对象的属性，返回属性名，for...of 循环遍历的是对象的值，返回的是属性值
+    2.for...in循环可以遍历对象的自有属性和继承属性，而for...of循环只能遍历可迭代对象本身的属性，不能遍历继承属性
+    3.for...in 可以遍历普通对象，也可用于遍历数组、字符串等可迭代对象，for...of只能用于遍历可迭代对象
+    4.都无法获取Symbol的数据类型
+    */
+  </script>
+</body>
+
+</html>

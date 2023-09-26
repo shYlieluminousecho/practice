@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+  <title>将一个数组扁平化</title>
+</head>
+
+<body>
+  <script>
+    var arr = [1, [[2, 3], 4], [5, 6]];
+    function* flat(arr) {
+      for (var i = 0; i < arr.length; i++) {
+        if (Array.isArray(arr[i])) {
+          // 表示继续递归
+          yield* flat(arr[i])
+        } else {
+          yield arr[i]
+        }
+      }
+    }
+
+    for (const item of flat(arr)) {
+      console.log(item);
+    }
+  </script>
+</body>
+
+</html>

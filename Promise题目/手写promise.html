@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+  <title>手写promise</title>
+</head>
+
+<body>
+  <script src="./index.js"></script>
+  <script>
+
+    var p1 = new MyPromise((resolve, reject) => {
+      // resolve(111)
+      // reject(222)
+      // console.l1g();
+      setTimeout(() => {
+        resolve(123)
+        // reject(456)
+      }, 1000)
+    })
+    p1.then(res => {
+      console.log(res, 'p1成功1');
+      // return 123
+      // return new MyPromise((resolve) => {
+      //   resolve('xxxx')
+      // })
+    }, err => {
+      console.log(err, 'p1失败1');
+      // console.lag();
+      // return 123
+      // return new MyPromise((resolve, reject) => {
+      //   // resolve(123)
+      //   reject(456)
+      // })
+    }).then(res => {
+      console.log(res, 'p2成功');
+    }, err => {
+      console.log(err, 'p2失败');
+    })
+    // p1.then(res => {
+    //   console.log(res, 'p1成功2');
+    // }, err => {
+    //   console.log(err, 'p1失败2');
+    // })
+
+  </script>
+</body>
+
+</html>
