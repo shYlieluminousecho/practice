@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    Object.assign(): 将一个或多个源对象中所有可枚举的自有属性复制到目标对象，并返回修改后的目标对象
+    - 浅拷贝，只是复制值的地址
+    */
+    /* const target = { a: 1, b: 2, c: Symbol('c') }
+    const source = { b: 4, c: 5 }
+    console.log(Object.assign(target, source), target); */
+
+    /*  const obj1 = { a: 0, b: { c: 0 } };
+    const obj2 = Object.assign({}, obj1);
+    obj2.b.c = 3
+    console.log(obj1); */
+
+    // 不可枚举的属性和原型上的属性
+    const obj = Object.create({ foo: 1 }, {
+      bar: {
+        value: 2, //不可枚举属性
+      },
+      baz: {
+        value: 3,
+        enumerable: true, // 可枚举的自有属性
+      }
+    })
+
+    const obj2 = Object.assign({}, obj)
+    console.log(obj2);
+    console.log(obj2.__proto__.foo);
+    console.log(obj.__proto__);
+
+  </script>
+</body>
+
+</html>

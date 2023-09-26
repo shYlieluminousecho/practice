@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+  <title>02-iterator</title>
+</head>
+
+<body>
+  <script>
+    const obj = {
+      name: 'zs',
+      age: 18,
+      sex: 'MAN',
+      address: '深圳'
+    }
+    // 默认 obj 是不可迭代的 -  obj is not iterable
+    // for (const item of obj) {
+    //   console.log(item);
+    // }
+    // 如果我们想让一个对象可迭代，则可以重写[Symbol.iterator]方法
+    obj[Symbol.iterator] = function () {
+      const keys = Object.keys(this)
+      let index = 0
+      const self = this
+      return {
+        next() {
+          if (index > keys.length - 1) {
+            return {
+              value: undefined,
+              done: true
+            }
+          }
+          return {
+            value: [keys[index], self[keys[index++]]],
+            done: false
+          }
+        }
+      }
+    }
+    for (const item of obj) {
+      console.log(item);
+    }
+  </script>
+</body>
+
+</html>
