@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+  <title>instanceof</title>
+</head>
+
+<body>
+  <script>
+    /*
+    instanceof：检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上
+    - 基本数据类型不能使用 instanceof 进行检测
+    */
+    // console.log('str' instanceof String);
+    // console.log('str'.__proto__ === String.prototype); // 这里打印true是因为，'str'转成了包装对象，所以可以访问
+
+
+    // 手写 instanceof
+    function myInstanceOf(obj, Func) {
+      if (!['function', 'object'].includes(obj) || !obj) return false
+      let left = obj.__proto__
+      let right = Func.prototype
+      while (left !== right) {
+        left = left.__proto__
+        if (!left) {
+          return false;
+        }
+      }
+      return true
+    }
+
+    console.log([] instanceof Object);
+
+    console.log(myInstanceOf([], Object));
+    console.log(myInstanceOf('str', String));
+  </script>
+</body>
+
+</html>
